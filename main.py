@@ -17,7 +17,7 @@ import functionals as fun
 
 window = tk.Tk()
 window.title("PRTS")
-window.geometry("450x300")
+window.geometry("900x360")
 
 # [Experience Calculator]
 
@@ -54,13 +54,13 @@ e_levelf.place(x=150, y=90)
 exp_sum = tk.IntVar()
 lmd_sum = tk.IntVar()
 def cal_explmd():
-    var_leveli=e_leveli.get()
-    var_levelf=e_levelf.get()
+    var_leveli=int(e_leveli.get())
+    var_levelf=int(e_levelf.get())
     promotion_stage=promotion_rb.get()
     if var_leveli<=var_levelf:
     	try:
-    		lb_exp.configure(text='EXP = '+str(fun.exp_needed((int)(var_leveli), (int)(var_levelf), promotion_stage)))
-    		lb_lmd.configure(text='LMD = '+str(fun.lmd_needed((int)(var_leveli), (int)(var_levelf), promotion_stage)))
+    		lb_exp.configure(text='EXP = '+str(fun.exp_needed(var_leveli, var_levelf, promotion_stage)))
+    		lb_lmd.configure(text='LMD = '+str(fun.lmd_needed(var_leveli, var_levelf, promotion_stage)))
     	except Exception as e:
 	    	if promotion_stage==0:
 	    		tk.messagebox.showwarning(title='Input Error', message='Please enter integers between 1 and 50.')
@@ -80,6 +80,13 @@ lb_lmd.place(x=320, y=90)
 
 b_exp = tk.Button(window, text='Calculate Exp', command=cal_explmd)
 b_exp.place(x=320, y=30)
+
+# edit background photo
+canvas = tk.Canvas(window, height=300, width=400)
+image_file = tk.PhotoImage(file= 'timg.gif')
+image = canvas.create_image(200, 150, image=image_file)
+canvas.place(x=450, y=20)
+
 
 
 window.mainloop()

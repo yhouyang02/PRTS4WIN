@@ -1,4 +1,6 @@
+import xlrd # prerequisite of pandas
 import pandas as pd
+
 
 # Returns exp needed
 def exp_needed(op_leveli, op_levelf, elite_level):
@@ -42,3 +44,6 @@ def lmd_needed(op_leveli, op_levelf, elite_level):
 def stra_br_needed(op_leveli, op_levelf, elite_level):
 	EXP_STRAGETIC_BATTLE_RECORD = 2000 # constant exp provided by a Strategic BR
 	return exp / EXP_STRAGETIC_BATTLE_RECORD
+
+
+

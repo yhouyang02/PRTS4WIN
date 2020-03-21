@@ -5,6 +5,7 @@ import pickle
 import xlrd # prerequisite of pandas
 import pandas as pd
 import tkinter.ttk as ttk
+import win32com.client
 
 # Local Support
 import functionals as fun
@@ -36,13 +37,13 @@ class MainApp(tk.Tk):
 
         #Developers
         self.lb_developer = tk.Label(self, text="Developers: Henry Ouyang, Scott Xu")
-        self.lb_developer.place(x=675, y=420)
+        self.lb_developer.place(x=650, y=420)
 
         #Background
-        canvas = tk.Canvas(self, bg='blue', height=300, width=400)
-        image_file = tk.PhotoImage(file='timg.gif')
-        image = canvas.create_image(200, 150, image=image_file)
-        canvas.place(x=450, y=110)
+        self.canvas = tk.Canvas(self, bg='blue', height=300, width=400)
+        self.image_file = tk.PhotoImage(file='timg.gif')
+        self.image = self.canvas.create_image(200, 150, image=self.image_file)
+        self.canvas.place(x=450, y=110)
 
         #EXP and LMD
         self.exp_sum = tk.IntVar()
@@ -54,7 +55,7 @@ class MainApp(tk.Tk):
         self.lb_lmd = tk.Label(self, height=1, width=12, text='LMD')
         self.lb_lmd.place(x=320, y=180)
 
-        self.b_exp = tk.Button(self, text='Calculate', command=self.cal_explmd) # (ERROR)command not defined
+        self.b_exp = tk.Button(self, text='Calculate', command=self.cal_explmd)
         self.b_exp.place(x=320, y=120)
 
         #Elite

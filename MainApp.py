@@ -5,10 +5,10 @@ import pickle
 import xlrd # prerequisite of pandas
 import pandas as pd
 import tkinter.ttk as ttk
-import win32com.client
 
 # Local Support
 import functionals as fun
+import database as db
 from Operator import *
 from Log import *
 from Base import *

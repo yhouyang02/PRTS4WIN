@@ -8,7 +8,7 @@ Returns the connection to PRTS's admin account
 '''
 def get_connection():
 	return pymysql.connect(
-		#REMINDER: to modify host' and 'port' if updated
+		#REMINDER: to modify 'host' and 'port' if updated
 		host = 'prts.tooo.top',
 		port = '36850', 
 		user = 'admin', 
